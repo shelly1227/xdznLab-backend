@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xdzn.lab.core.mapper.ContestRecordMapper">
+
+    <resultMap id="BaseResultMap" type="club.xdzn.lab.common.entity.contest.ContestRecord">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="cid" column="cid" jdbcType="BIGINT"/>
+            <result property="uid" column="uid" jdbcType="VARCHAR"/>
+            <result property="pid" column="pid" jdbcType="BIGINT"/>
+            <result property="cpid" column="cpid" jdbcType="BIGINT"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="realname" column="realname" jdbcType="VARCHAR"/>
+            <result property="displayId" column="display_id" jdbcType="VARCHAR"/>
+            <result property="submitId" column="submit_id" jdbcType="BIGINT"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="submitTime" column="submit_time" jdbcType="TIMESTAMP"/>
+            <result property="time" column="time" jdbcType="BIGINT"/>
+            <result property="score" column="score" jdbcType="INTEGER"/>
+            <result property="useTime" column="use_time" jdbcType="INTEGER"/>
+            <result property="firstBlood" column="first_blood" jdbcType="TINYINT"/>
+            <result property="checked" column="checked" jdbcType="TINYINT"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cid,uid,
+        pid,cpid,username,
+        realname,display_id,submit_id,
+        status,submit_time,time,
+        score,use_time,first_blood,
+        checked,gmt_create,gmt_modified,
+        create_by,update_by,is_deleted
+    </sql>
+</mapper>

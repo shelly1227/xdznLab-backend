@@ -1,0 +1,13 @@
+package club.xdzn.lab.core.service.notice;
+
+import club.xdzn.lab.common.entity.notice.MsgRemind;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+* @author Shelly6
+* @description 针对表【msg_remind】的数据库操作Service
+* @createDate 2025-05-26 19:19:29
+*/
+public interface MsgRemindService extends IService<MsgRemind> {
+
+}

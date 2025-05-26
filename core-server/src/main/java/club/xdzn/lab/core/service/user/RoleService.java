@@ -1,0 +1,13 @@
+package club.xdzn.lab.core.service.user;
+
+import club.xdzn.lab.common.entity.user.Role;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+* @author Shelly6
+* @description 针对表【role(角色表)】的数据库操作Service
+* @createDate 2025-05-26 17:05:15
+*/
+public interface RoleService extends IService<Role> {
+
+}

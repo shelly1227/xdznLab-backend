@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xdzn.lab.core.mapper.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="club.xdzn.lab.common.entity.discussion.Comment">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cid" column="cid" jdbcType="BIGINT"/>
+            <result property="did" column="did" jdbcType="INTEGER"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="fromUid" column="from_uid" jdbcType="VARCHAR"/>
+            <result property="fromName" column="from_name" jdbcType="VARCHAR"/>
+            <result property="fromAvatar" column="from_avatar" jdbcType="VARCHAR"/>
+            <result property="fromRole" column="from_role" jdbcType="VARCHAR"/>
+            <result property="likeNum" column="like_num" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cid,did,
+        content,from_uid,from_name,
+        from_avatar,from_role,like_num,
+        status,gmt_create,gmt_modified
+    </sql>
+</mapper>

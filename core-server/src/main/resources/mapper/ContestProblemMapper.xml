@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xdzn.lab.core.mapper.ContestProblemMapper">
+
+    <resultMap id="BaseResultMap" type="club.xdzn.lab.common.entity.contest.ContestProblem">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="displayId" column="display_id" jdbcType="VARCHAR"/>
+            <result property="cid" column="cid" jdbcType="BIGINT"/>
+            <result property="pid" column="pid" jdbcType="BIGINT"/>
+            <result property="displayTitle" column="display_title" jdbcType="VARCHAR"/>
+            <result property="color" column="color" jdbcType="VARCHAR"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,display_id,cid,
+        pid,display_title,color,
+        gmt_create,gmt_modified,create_by,
+        update_by,is_deleted
+    </sql>
+</mapper>

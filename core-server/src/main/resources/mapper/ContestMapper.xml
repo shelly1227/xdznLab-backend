@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xdzn.lab.core.mapper.ContestMapper">
+
+    <resultMap id="BaseResultMap" type="club.xdzn.lab.common.entity.contest.Contest">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="uid" column="uid" jdbcType="VARCHAR"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="auth" column="auth" jdbcType="INTEGER"/>
+            <result property="pwd" column="pwd" jdbcType="VARCHAR"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="duration" column="duration" jdbcType="BIGINT"/>
+            <result property="sealRank" column="seal_rank" jdbcType="TINYINT"/>
+            <result property="sealRankTime" column="seal_rank_time" jdbcType="TIMESTAMP"/>
+            <result property="autoRealRank" column="auto_real_rank" jdbcType="TINYINT"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="visible" column="visible" jdbcType="TINYINT"/>
+            <result property="openPrint" column="open_print" jdbcType="TINYINT"/>
+            <result property="openAccountLimit" column="open_account_limit" jdbcType="TINYINT"/>
+            <result property="accountLimitRule" column="account_limit_rule" jdbcType="VARCHAR"/>
+            <result property="rankShowName" column="rank_show_name" jdbcType="VARCHAR"/>
+            <result property="openRank" column="open_rank" jdbcType="TINYINT"/>
+            <result property="oiRankScoreType" column="oi_rank_score_type" jdbcType="VARCHAR"/>
+            <result property="isGroup" column="is_group" jdbcType="TINYINT"/>
+            <result property="gid" column="gid" jdbcType="BIGINT"/>
+            <result property="allowEndSubmit" column="allow_end_submit" jdbcType="TINYINT"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,uid,title,
+        type,description,auth,
+        pwd,start_time,end_time,
+        duration,seal_rank,seal_rank_time,
+        auto_real_rank,status,visible,
+        open_print,open_account_limit,account_limit_rule,
+        rank_show_name,open_rank,oi_rank_score_type,
+        is_group,gid,allow_end_submit,
+        gmt_create,gmt_modified,create_by,
+        update_by,is_deleted
+    </sql>
+</mapper>

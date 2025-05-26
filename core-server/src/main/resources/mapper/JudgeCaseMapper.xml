@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xdzn.lab.core.mapper.JudgeCaseMapper">
+
+    <resultMap id="BaseResultMap" type="club.xdzn.lab.common.entity.judge.JudgeCase">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <id property="submitId" column="submit_id" jdbcType="BIGINT"/>
+            <id property="uid" column="uid" jdbcType="VARCHAR"/>
+            <id property="pid" column="pid" jdbcType="BIGINT"/>
+            <result property="caseId" column="case_id" jdbcType="BIGINT"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="time" column="time" jdbcType="INTEGER"/>
+            <result property="memory" column="memory" jdbcType="INTEGER"/>
+            <result property="score" column="score" jdbcType="INTEGER"/>
+            <result property="groupNum" column="group_num" jdbcType="INTEGER"/>
+            <result property="seq" column="seq" jdbcType="INTEGER"/>
+            <result property="mode" column="mode" jdbcType="VARCHAR"/>
+            <result property="inputData" column="input_data" jdbcType="VARCHAR"/>
+            <result property="outputData" column="output_data" jdbcType="VARCHAR"/>
+            <result property="userOutput" column="user_output" jdbcType="VARCHAR"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,submit_id,uid,
+        pid,case_id,status,
+        time,memory,score,
+        group_num,seq,mode,
+        input_data,output_data,user_output,
+        gmt_create,gmt_modified
+    </sql>
+</mapper>

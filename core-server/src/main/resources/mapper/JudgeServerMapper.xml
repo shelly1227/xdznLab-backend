@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xdzn.lab.core.mapper.JudgeServerMapper">
+
+    <resultMap id="BaseResultMap" type="club.xdzn.lab.common.entity.judge.JudgeServer">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="ip" column="ip" jdbcType="VARCHAR"/>
+            <result property="port" column="port" jdbcType="INTEGER"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+            <result property="cpuCore" column="cpu_core" jdbcType="INTEGER"/>
+            <result property="taskNumber" column="task_number" jdbcType="INTEGER"/>
+            <result property="maxTaskNumber" column="max_task_number" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,ip,
+        port,url,cpu_core,
+        task_number,max_task_number,status,
+        gmt_create,gmt_modified
+    </sql>
+</mapper>
