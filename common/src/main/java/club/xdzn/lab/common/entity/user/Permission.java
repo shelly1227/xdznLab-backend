@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -57,6 +58,19 @@ public class Permission extends BaseEntity implements Serializable {
      */
     @Schema(name = "图标")
     private String icon;
+
+
+    @Schema(description = "是否存在子级权限")
+    @TableField(exist = false)
+    private Boolean hasChildren = false;
+    /**
+     * 子级权限
+     *
+     * @see List <Permission>
+     */
+    @Schema(description = "子级权限")
+    @TableField(exist = false)
+    private List<Permission> children;
 
     @TableField(exist = false)
     @Serial

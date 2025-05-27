@@ -13,6 +13,7 @@ import java.util.Date;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * 
@@ -21,6 +22,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName(value ="role_permission")
 @Data
+@Accessors(chain = true)
 public class RolePermission extends BaseEntity implements Serializable {
     /**
      * 

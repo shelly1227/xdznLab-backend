@@ -8,9 +8,13 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * 角色表
@@ -19,6 +23,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName(value ="role")
 @Data
+@Accessors(chain = true)
 public class Role extends BaseEntity implements Serializable {
     /**
      * 主键
@@ -45,7 +50,22 @@ public class Role extends BaseEntity implements Serializable {
     @Schema(description = "是否可用")
     private Integer status;
 
-
+    /**
+     * 权限
+     *
+     * @see List <Long>
+     */
+    @Schema(description = "角色对应权限")
+    @TableField(exist = false)
+    private List<Long> permissions = Collections.emptyList();
+    /**
+     * 权限
+     *
+     * @see List<Long>
+     */
+    @Schema(description = "权限名称")
+    @TableField(exist = false)
+    private List<String> permissionNames = Collections.emptyList();
     @TableField(exist = false)
     @Serial
     private static final long serialVersionUID = 1L;

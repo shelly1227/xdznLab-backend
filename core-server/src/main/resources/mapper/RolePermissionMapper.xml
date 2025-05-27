@@ -20,4 +20,18 @@
         gmt_create,gmt_modified,create_by,
         update_by,is_deleted
     </sql>
+    <select id="selectPermissionNameByRole" resultType="java.lang.String">
+        SELECT
+            permission_name
+        FROM
+            permission
+        WHERE
+            id IN (
+                SELECT
+                    permission_id
+                FROM
+                    role_permission
+                WHERE
+                    role_id = #{roleId})
+    </select>
 </mapper>
