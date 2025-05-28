@@ -20,4 +20,12 @@
         gmt_create,gmt_modified,create_by,
         update_by,is_deleted
     </sql>
+    <select id="getUserRoleInfo" resultType="club.xdzn.lab.common.model.dto.RoleInfoDTO">
+        select ur.role_id, r.role as role_name
+            from
+                user_role ur
+                left join role r on ur.role_id = r.id
+            where
+                ur.uid = #{id}
+    </select>
 </mapper>

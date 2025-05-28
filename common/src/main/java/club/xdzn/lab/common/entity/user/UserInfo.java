@@ -119,6 +119,13 @@ public class UserInfo extends BaseEntity implements Serializable {
     @Schema(description = "0可用，1不可用")
     private Integer status;
 
+    @Schema(description = "角色ID")
+    @TableField(exist = false)
+    private Long roleId;
+
+    @Schema(description = "角色名称")
+    @TableField(exist = false)
+    private String role;
 
     @TableField(exist = false)
     @Serial

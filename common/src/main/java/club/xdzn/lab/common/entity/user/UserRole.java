@@ -10,6 +10,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * 用户与角色关联表
@@ -18,6 +19,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName(value ="user_role")
 @Data
+@Accessors(chain = true)
 public class UserRole extends BaseEntity implements Serializable {
     /**
      * 主键

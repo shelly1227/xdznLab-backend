@@ -60,7 +60,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
 
     @Override
     @Cache(constants = RedisConstants.USER_PERMISSION)
-    public List<String> getPermissionByUser(@CacheParam Long id) {
+    public List<String> getPermissionByUser(@CacheParam String id) {
         List<Permission> allPermissions = list();
         List<Permission> permissions = baseMapper.getPermissionByUser(id);
         return getSubPermissions(allPermissions, permissions).stream().map(Permission::getKeyName).toList();

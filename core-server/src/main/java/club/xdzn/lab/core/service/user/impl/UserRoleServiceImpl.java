@@ -1,6 +1,7 @@
 package club.xdzn.lab.core.service.user.impl;
 
 import club.xdzn.lab.common.entity.user.UserRole;
+import club.xdzn.lab.common.model.dto.RoleInfoDTO;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import club.xdzn.lab.core.mapper.UserRoleMapper;
@@ -14,6 +15,10 @@ import club.xdzn.lab.core.service.user.UserRoleService;
 public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole>
     implements UserRoleService{
 
+    @Override
+    public RoleInfoDTO getUserRoleInfo(String id) {
+        return baseMapper.getUserRoleInfo(id);
+    }
 }
 
 

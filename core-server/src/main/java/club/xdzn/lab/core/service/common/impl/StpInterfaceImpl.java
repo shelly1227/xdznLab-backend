@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 权限验证配置
+ * @author shelly
+ */
 @Component
 @RequiredArgsConstructor
 public class StpInterfaceImpl implements StpInterface {
@@ -23,7 +27,7 @@ public class StpInterfaceImpl implements StpInterface {
 
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
-        long id = StpUtil.getLoginIdAsLong();
+        String id = StpUtil.getLoginIdAsString();
         List<String> permissions = permissionService.getPermissionByUser(id);
         if(permissions.isEmpty()){
             return Collections.emptyList();
@@ -34,7 +38,7 @@ public class StpInterfaceImpl implements StpInterface {
 
     @Override
     public List<String> getRoleList(Object loginId, String loginType) {
-        List<String> roleNames =  roleService.getRoleNameByUser(Long.parseLong(loginId.toString()));
+        List<String> roleNames =  roleService.getRoleNameByUser(loginId.toString());
         if(CollUtil.isEmpty(roleNames)){
             return Collections.emptyList();
         }

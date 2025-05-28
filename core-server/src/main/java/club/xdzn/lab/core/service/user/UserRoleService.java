@@ -1,6 +1,7 @@
 package club.xdzn.lab.core.service.user;
 
 import club.xdzn.lab.common.entity.user.UserRole;
+import club.xdzn.lab.common.model.dto.RoleInfoDTO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface UserRoleService extends IService<UserRole> {
 
+    RoleInfoDTO getUserRoleInfo(String id);
 }

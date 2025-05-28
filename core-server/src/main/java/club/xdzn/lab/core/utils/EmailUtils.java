@@ -2,12 +2,18 @@ package club.xdzn.lab.core.utils;
 
 import club.xdzn.lab.common.enums.CodeEnum;
 import club.xdzn.lab.common.exception.CustomException;
+import club.xdzn.lab.common.model.dto.MailDTO;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.MailException;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -15,18 +21,20 @@ import java.util.regex.Pattern;
 
 /**
  * 邮箱工具类
- *
- * @author HeXin
- * @date 2024/03/08
+ * @author shelly
+ * @date 2025/5/28
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class EmailUtils {
 
-    private final JavaMailSender mailSender;
+    private final JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
     private String sendMailer;
+
+    private final TemplateEngine templateEngine;
 
     /**
      * 判断邮箱是否合法
@@ -39,22 +47,37 @@ public class EmailUtils {
             throw new CustomException(CodeEnum.EMAIL_FORMAT_ERROR);
         }
     }
-
-    @Async
-    public void sendMailMessage(String email, String code) {
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            // 发件人邮箱
-            message.setFrom(sendMailer);
-            // 收件人邮箱
-            message.setTo(email);
-            // 邮件标题
-            message.setSubject("欢迎使用虚动智能OJ系统！");
-            message.setText("这是您的注册验证码：\n" + "<font color='blue'>" + code + "</font>" + "\n验证码五分钟内有效。若非本人操作，请忽略此邮件！");
-            mailSender.send(message);
-        } catch (MailException e) {
-            throw new CustomException(CodeEnum.EMAIL_SEND_ERROR);
+    public static boolean isValid(String email) {
+        if (StringUtils.isBlank(email)) {
+            return false;
         }
+        return Pattern.matches("^(\\w+([-.][A-Za-z0-9]+)*){3,18}@\\w+([-.][A-Za-z0-9]+)*\\.\\w+([-.][A-Za-z0-9]+)*$", email);
     }
 
+    @Async
+    public void sendSimpleMail(MailDTO mailDTO) {
+        SimpleMailMessage simpleMail = new SimpleMailMessage();
+        simpleMail.setFrom(sendMailer);
+        simpleMail.setTo(mailDTO.getToEmail());
+        simpleMail.setSubject(mailDTO.getSubject());
+        simpleMail.setText(mailDTO.getContent());
+        javaMailSender.send(simpleMail);
+    }
+    @Async
+    public void sendHtmlMail(MailDTO mailDTO) {
+        try {
+            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+            Context context = new Context();
+            context.setVariables(mailDTO.getContentMap());
+            String process = templateEngine.process(mailDTO.getTemplate(), context);
+            mimeMessageHelper.setFrom(sendMailer);
+            mimeMessageHelper.setTo(mailDTO.getToEmail());
+            mimeMessageHelper.setSubject(mailDTO.getSubject());
+            mimeMessageHelper.setText(process, true);
+            javaMailSender.send(mimeMessage);
+        } catch (MessagingException e) {
+            log.error("sendHtmlMail fail, {}", e.getMessage());
+        }
+    }
 }

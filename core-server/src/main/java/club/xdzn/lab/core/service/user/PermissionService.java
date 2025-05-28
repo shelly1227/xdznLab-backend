@@ -33,7 +33,7 @@ public interface PermissionService extends IService<Permission> {
      * @param id 编号
      * @return {@link List}<{@link String}>
      */
-    List<String> getPermissionByUser(Long id);
+    List<String> getPermissionByUser(String id);
 
     /**
      * 删除权限

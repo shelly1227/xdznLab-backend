@@ -11,7 +11,7 @@ public interface PermissionMapper extends BaseMapper<Permission> {
 
     List<Permission> getChildren(String parentId);
 
-    List<Permission> getPermissionByUser(Long id);
+    List<Permission> getPermissionByUser(String id);
 }
 
 

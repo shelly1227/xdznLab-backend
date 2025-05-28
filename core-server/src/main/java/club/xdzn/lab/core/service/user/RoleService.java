@@ -17,7 +17,7 @@ public interface RoleService extends IService<Role> {
      * @param id 编号
      * @return {@link List}<{@link String}>
      */
-    List<String> getRoleNameByUser(Long id);
+    List<String> getRoleNameByUser(String id);
 
 
     /**
@@ -26,7 +26,7 @@ public interface RoleService extends IService<Role> {
      * @param id 编号
      * @return {@link List}<{@link Role}>
      */
-    List<Role> getRoleByUser(Long id);
+    List<Role> getRoleByUser(String id);
 
     /**
      * 保存角色
@@ -77,5 +77,5 @@ public interface RoleService extends IService<Role> {
      */
     Boolean unbindPermission(Long roleId, Long permissionId);
 
-    List<Long> getRoleIdsByUser(long l);
+    List<Long> getRoleIdsByUser(String s);
 }

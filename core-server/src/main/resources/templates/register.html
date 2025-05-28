@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证码邮件</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Microsoft YaHei', Arial, sans-serif; background-color: #f0f8ff;">
+<div style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(135, 206, 250, 0.3); overflow: hidden;">
+    <!-- 头部 -->
+    <div style="background: linear-gradient(135deg, #87ceeb 0%, #b0e0e6 100%); padding: 30px 20px; text-align: center; color: white;">
+        <!-- 团队Logo区域 -->
+        <div style="margin-bottom: 20px;">
+            <div style="margin-bottom: 10px; height: 180px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start;">
+                <img src="/static/logo1.png" alt="团队Logo"
+                     style="height: 200px; width: auto; display: block;">
+            </div>
+        </div>
+        <h1 style="margin: 0; font-size: 28px; font-weight: 300; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">虚动智能OJ系统</h1>
+        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">欢迎加入我们的编程世界</p>
+    </div>
+
+    <!-- 主要内容 -->
+    <div style="padding: 40px 30px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="color: #4682b4; margin: 0 0 15px 0; font-size: 24px; font-weight: 400;">验证码确认</h2>
+            <p style="color: #666; margin: 0; font-size: 16px; line-height: 1.6;">感谢您注册虚动智能OJ系统，请使用以下验证码完成注册：</p>
+        </div>
+
+        <!-- 验证码区域 -->
+        <div style="background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%); border: 2px solid #87ceeb; border-radius: 8px; padding: 25px; text-align: center; margin: 25px 0;">
+            <p style="margin: 0 0 10px 0; color: #4682b4; font-size: 16px; font-weight: 500;">您的验证码：</p>
+            <div style="font-size: 32px; font-weight: bold; color: #1e90ff; letter-spacing: 8px; font-family: 'Courier New', monospace; text-shadow: 0 2px 4px rgba(30, 144, 255, 0.2);">
+                <span th:text="${code}">生成出错啦！</span>
+            </div>
+        </div>
+
+        <!-- 提示信息 -->
+        <div style="background-color: #fff8dc; border-left: 4px solid #ffd700; padding: 15px 20px; margin: 25px 0; border-radius: 0 6px 6px 0;">
+            <p style="margin: 0; color: #b8860b; font-size: 14px;">
+                <strong>⏰ 重要提示：</strong>验证码五分钟内有效，请尽快完成验证。
+            </p>
+        </div>
+
+        <div style="background-color: #f0f8ff; border: 1px solid #add8e6; padding: 15px 20px; margin: 20px 0; border-radius: 6px;">
+            <p style="margin: 0; color: #4682b4; font-size: 14px;">
+                <strong>🔒 安全提醒：</strong>若非本人操作，请忽略此邮件。我们不会主动索要您的验证码，请妥善保管。
+            </p>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div style="background-color: #f8fbff; border-top: 1px solid #e0f0ff; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; color: #87ceeb; font-size: 14px;">虚动智能OJ系统 © 2025</p>
+        <p style="margin: 8px 0 0 0; color: #b0c4de; font-size: 12px;">专注于提供优质的在线编程体验</p>
+    </div>
+</div>
+</body>
+</html>

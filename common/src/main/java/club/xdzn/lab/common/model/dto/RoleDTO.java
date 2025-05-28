@@ -5,9 +5,11 @@ import club.xdzn.lab.common.entity.user.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Accessors(chain = true)
 public class RoleDTO extends ConvertEntity<Role> {
     /**
      * 主键

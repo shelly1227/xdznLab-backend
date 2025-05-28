@@ -34,13 +34,13 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
 
     @Override
     @Cache(constants = RedisConstants.USER_ROLE)
-    public List<String> getRoleNameByUser(@CacheParam Long id) {
+    public List<String> getRoleNameByUser(@CacheParam String id) {
         return getRoleByUser(id).stream().map(Role::getRole).toList();
     }
 
 
     @Override
-    public List<Role> getRoleByUser(Long id) {
+    public List<Role> getRoleByUser(String id) {
         List<Long> roleIdList = userRoleService.lambdaQuery().select(UserRole::getRoleId)
                 .eq(UserRole::getUid, id).list()
                 .stream().map(UserRole::getRoleId).toList();
@@ -91,8 +91,8 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
     }
 
     @Override
-    public List<Long> getRoleIdsByUser(long l) {
-        return getRoleByUser(l).stream().map(Role::getId).toList();
+    public List<Long> getRoleIdsByUser(String s) {
+        return getRoleByUser(s).stream().map(Role::getId).toList();
     }
 
     @Override
